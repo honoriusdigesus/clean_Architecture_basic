@@ -11,6 +11,8 @@ public class User {
     @GeneratedValue
     private UUID id;
     private String name;
+
+    @Column(unique = true)
     private String email;
     private String password;
 

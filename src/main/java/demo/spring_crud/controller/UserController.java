@@ -26,4 +26,14 @@ public class UserController {
     public ResponseEntity<Optional<User>> getById(@PathVariable UUID uuid){
         return ResponseEntity.ok(userService.findById(uuid));
     }
+
+    @PutMapping
+    public ResponseEntity<User> update(@RequestBody User user){
+        return ResponseEntity.ok(userService.save(user));
+    }
+
+    @DeleteMapping("/{uuid}")
+    public ResponseEntity<Optional<String>> delete(@PathVariable UUID uuid){
+        return ResponseEntity.ok(userService.deleteUser(uuid));
+    }
 }
