@@ -1,12 +1,13 @@
-package demo.spring_crud.entity;
+package demo.spring_crud.infrastructure.percistence;
 
 import jakarta.persistence.*;
 
 import java.util.UUID;
 
+@Entity
 @Table
-@Entity(name = "user_login")
-public class User {
+
+public class UserEntity {
     @Id
     @GeneratedValue
     private UUID id;
@@ -14,16 +15,8 @@ public class User {
 
     @Column(unique = true)
     private String email;
+
     private String password;
-
-    public User(String name, String email, String password) {
-        this.name = name;
-        this.email = email;
-        this.password = password;
-    }
-
-    public User() {
-    }
 
     public UUID getId() {
         return id;
@@ -55,5 +48,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public UserEntity(String name, String email, String password) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
+    }
+    public UserEntity() {
     }
 }
